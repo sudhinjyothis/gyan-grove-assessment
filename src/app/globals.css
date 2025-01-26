@@ -1,0 +1,152 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --foreground-rgb: 0, 0, 0;
+  --background-start-rgb: 214, 219, 220;
+  --background-end-rgb: 255, 255, 255;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --foreground-rgb: 255, 255, 255;
+    --background-start-rgb: 0, 0, 0;
+    --background-end-rgb: 0, 0, 0;
+  }
+}
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 3.9%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 3.9%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 3.9%;
+    --primary: 0 0% 9%;
+    --primary-foreground: 0 0% 98%;
+    --secondary: 0 0% 96.1%;
+    --secondary-foreground: 0 0% 9%;
+    --muted: 0 0% 96.1%;
+    --muted-foreground: 0 0% 45.1%;
+    --accent: 0 0% 96.1%;
+    --accent-foreground: 0 0% 9%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 89.8%;
+    --input: 0 0% 89.8%;
+    --ring: 0 0% 3.9%;
+    --chart-1: 12 76% 61%;
+    --chart-2: 173 58% 39%;
+    --chart-3: 197 37% 24%;
+    --chart-4: 43 74% 66%;
+    --chart-5: 27 87% 67%;
+    --radius: 0.5rem;
+  }
+  .dark {
+    --background: 0 0% 3.9%;
+    --foreground: 0 0% 98%;
+    --card: 0 0% 3.9%;
+    --card-foreground: 0 0% 98%;
+    --popover: 0 0% 3.9%;
+    --popover-foreground: 0 0% 98%;
+    --primary: 0 0% 98%;
+    --primary-foreground: 0 0% 9%;
+    --secondary: 0 0% 14.9%;
+    --secondary-foreground: 0 0% 98%;
+    --muted: 0 0% 14.9%;
+    --muted-foreground: 0 0% 63.9%;
+    --accent: 0 0% 14.9%;
+    --accent-foreground: 0 0% 98%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 0 0% 14.9%;
+    --input: 0 0% 14.9%;
+    --ring: 0 0% 83.1%;
+    --chart-1: 220 70% 50%;
+    --chart-2: 160 60% 45%;
+    --chart-3: 30 80% 55%;
+    --chart-4: 280 65% 60%;
+    --chart-5: 340 75% 55%;
+  }
+
+  .loader {
+    width: 20px;
+    aspect-ratio: 1;
+    border-radius: 50%;
+    background: radial-gradient(farthest-side, #ffffff 34%, #0000) top/8px 8px
+        no-repeat,
+      conic-gradient(#0000 30%, #ffffff);
+    -webkit-mask: radial-gradient(
+      farthest-side,
+      #0000 calc(100% - 8px),
+      #000 0
+    );
+    animation: l13 1s infinite linear;
+  }
+  @keyframes l13 {
+    100% {
+      transform: rotate(1turn);
+    }
+  }
+
+  .loader2 {
+    --s: 25px;
+    --g: 5px;
+
+    width: calc(3 * (1.353 * var(--s) + var(--g)));
+    display: grid;
+    justify-items: end;
+    aspect-ratio: 3;
+    overflow: hidden;
+    --_m: linear-gradient(90deg, #0000, #000 15px calc(100% - 15px), #0000);
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+  }
+  .loader2:before {
+    content: "";
+    width: 200%;
+    background: linear-gradient(90deg, #ff1818 50%, #0000 0),
+      conic-gradient(
+        from -90deg at var(--s) calc(0.353 * var(--s)),
+        #fff 135deg,
+        #666 0 270deg,
+        #aaa 0
+      );
+    background-blend-mode: multiply;
+    --_m: linear-gradient(
+        to bottom right,
+        #0000 calc(0.25 * var(--s)),
+        #000 0 calc(100% - calc(0.25 * var(--s)) - 1.414 * var(--g)),
+        #0000 0
+      ),
+      conic-gradient(
+        from -90deg at right var(--g) bottom var(--g),
+        #000 90deg,
+        #0000 0
+      );
+    -webkit-mask: var(--_m);
+    mask: var(--_m);
+    background-size: calc(100% / 3) 100%, calc(100% / 6) 100%;
+    -webkit-mask-size: calc(100% / 6) 100%;
+    mask-size: calc(100% / 6) 100%;
+    -webkit-mask-composite: source-in;
+    mask-composite: intersect;
+    animation: l10 1s infinite linear;
+  }
+  @keyframes l10 {
+    to {
+      transform: translate(calc(100% / 3));
+    }
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
